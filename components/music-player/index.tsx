@@ -26,6 +26,7 @@ const Index = () => {
             title: music.attributes.songTitle,
             artist: music.attributes.artists.data,
             duratiion: music.attributes.duration,
+            songId: music.id,
             // img_src:
             //   "http://localhost:1337" +
             //   music.attributes.img_src.data[0].attributes.url,

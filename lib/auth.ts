@@ -28,6 +28,7 @@ export const unsetToken = (router: any) => {
 };
 
 export const getUserFromLocalCookie = () => {
+  console
   const jwt = getTokenFromLocalCookie();
   if (jwt) {
     return fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/users/me`, {

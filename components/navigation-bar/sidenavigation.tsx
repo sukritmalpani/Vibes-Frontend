@@ -63,8 +63,8 @@ export default function Sidenav() {
       onMouseLeave={handleMouseLeave}
       className={`${
         open
-          ? "w-64 transition-width duration-100 ease-in h-screen p-2 bg-black bg-opacity-90 rounded-tl-3xl z-10"
-          : "composes-sidenav transition-width duration-300 ease-in-out w-14 h-screen p-2  bg-black z-10"
+          ? "w-64 transition-width duration-100 ease-in h-screen p-2 bg-black bg-opacity-90 rounded-tl-3xl"
+          : "composes-sidenav transition-width duration-300 ease-in-out w-14 h-screen p-2  bg-black"
       }`}
     >
       <button

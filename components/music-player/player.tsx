@@ -10,18 +10,25 @@ import {
 } from "@/components/ui/popover";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
+import {
+  getIdFromLocalCookie,
+  getTokenFromLocalCookie,
+  getUserFromLocalCookie,
+} from "@/lib/auth";
+import axios from "axios";
 
 function Player(props: any) {
-  const audioEl = useRef(null);
+  const audioEl: any = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [history, setHistory] = useState(null);
   const [time, setTime] = useState(0);
 
   useEffect(() => {
     if (isPlaying) {
-      audioEl.current.play();
-      startTimer();
+      audioEl?.current?.play();
+      // startTimer();
     } else {
-      audioEl.current.pause();
+      audioEl?.current?.pause();
     }
   });
   const startTimer = () => {
@@ -45,7 +52,7 @@ function Player(props: any) {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-gray-700 p-4 flex flex-col justify-center shadow-md backdrop-opacity-50 z-20 h-22">
+    <div className="fixed bottom-0 left-0 right-0 bg-gray-700 p-4 flex flex-col justify-center shadow-md backdrop-opacity-50 h-22">
       <audio
         src={props.songs[props.currentSongIndex].src}
         ref={audioEl}

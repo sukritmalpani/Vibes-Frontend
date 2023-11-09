@@ -1,5 +1,6 @@
 "use client";
 import Banner from "@/components/banner";
+import HomePlaylist from "@/components/home-playlist";
 import Index from "@/components/music-player";
 import SideNavigation from "@/components/navigation-bar/sidenavigation";
 import { getUserFromLocalCookie, unsetToken } from "@/lib/auth";
@@ -15,16 +16,15 @@ export default function PlayStation() {
   const logout = () => {
     unsetToken(router);
   };
-  //   console.log(profile);
-  //   console.log(pathname);
   return (
     <div className="flex flex-col p-0">
-      {/* <button onClick={logout}>Logout</button> */}
       <div className="flex">
         <SideNavigation />
-        <Banner />
+        <div className="w-full">
+          <Banner />
+          <HomePlaylist />
+        </div>
       </div>
-      <Index />
     </div>
   );
 }
