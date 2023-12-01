@@ -8,16 +8,18 @@ const SongRow = ({ song }) => {
       <div className="flex-grow flex items-center">
         <div className="w-8 h-8 bg-gray-300 rounded-md mr-4"></div>
         <h3 className="text-lg font-medium text-white">
-          {song.attributes.songTitle}
+          {song?.attributes?.songTitle}
         </h3>
       </div>
       <div className="flex-grow">
-        <p className="text-gray-400">{song.attributes.album.data.albumTitle}</p>
+        <p className="text-gray-400">
+          {song?.attributes?.album?.data?.albumTitle}
+        </p>
       </div>
-      <div className="w-24 flex-grow text-gray-400">{song.duration}</div>
-      <div className="w-32 flex-grow text-gray-400">{song.dateAdded}</div>
+      <div className="w-24 flex-grow text-gray-400">{song?.duration}</div>
+      <div className="w-32 flex-grow text-gray-400">{song?.dateAdded}</div>
       <div className="ml-4">
-        {song.like ? (
+        {song?.like ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6 text-green-400"

@@ -121,7 +121,7 @@ export default function Sidenav() {
       </Link>
       <Link
         className="flex items-center p-2 cursor-pointer text-gray-300 hover:bg-purple-500 hover:rounded-md"
-        href={"/playlist"}
+        href={"/playlists"}
       >
         <Video />
         {open && (

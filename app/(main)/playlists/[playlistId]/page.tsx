@@ -3,6 +3,7 @@ import SongRow from "@/components/songRow";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { getTokenFromLocalCookie } from "@/lib/auth";
+import { useSongsContext } from "@/lib/songsContext";
 import { Separator } from "@radix-ui/react-separator";
 import axios from "axios";
 import { Play } from "lucide-react";
@@ -38,10 +39,11 @@ export const playlist = [
 export default function PlaylistId() {
   const { playlistId } = useParams();
   const token = getTokenFromLocalCookie();
-  const [songs, setSongs] = useState([]);
+  // const [songs, setSongs] = useState([]);
   const [songs1, setSongs1] = useState([]);
   const [songs2, setSongs2] = useState([]);
   const [playlistName, setPlaylistName] = useState("");
+  const { songs, updateSongs } = useSongsContext();
   const getPlaylists = async () => {
     const response = await axios.get(
       `${process.env.NEXT_PUBLIC_STRAPI_URL}/playlists?populate=*`,
@@ -74,7 +76,7 @@ export default function PlaylistId() {
     const filteredSongs = songs2.filter((song2) =>
       songs1.some((song1) => song1.id === song2.id)
     );
-    setSongs(filteredSongs);
+    updateSongs(filteredSongs);
   };
   useEffect(() => {
     getPlaylists();
@@ -87,6 +89,7 @@ export default function PlaylistId() {
   // console.log("Songs1: ", songs1);
   // console.log("Songs2: ", songs2);
   // console.log("Songs: ", songs);
+  console.log(songs);
   return (
     <div className="">
       <div className="h-64 rounded-3xl bg-gradient-to-r from-blue-500 to-purple-500 p-8 text-white text-center flex items-end justify-start gap-5">

@@ -5,9 +5,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { setToken } from "@/lib/auth";
+import { useSongsContext } from "@/lib/songsContext";
 
 const LoginPage: React.FC = () => {
   const router = useRouter();
+  const { songs, updateSongs } = useSongsContext();
+  console.log(songs);
   const searchParams = useSearchParams();
   const callbackUrl = searchParams?.get("redirect");
   const [data, setData] = useState(null);

@@ -22,7 +22,7 @@ function Player(props: any) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [history, setHistory] = useState(null);
   const [time, setTime] = useState(0);
-
+  console.log("Props: ", props);
   useEffect(() => {
     if (isPlaying) {
       audioEl?.current?.play();
@@ -67,13 +67,12 @@ function Player(props: any) {
           <div>
             <h4 className="text-white">Now Playing</h4>
             <p className="text-red-400 text-lg font-semibold">
-              {props.songs[props.currentSongIndex].title}
+              {props.songs[props?.currentSongIndex]?.title}
             </p>
             <p className="text-red-400">
-              {
-                props.songs[props.currentSongIndex].artist[0].attributes
-                  .artistName
-              }
+              {props.songs &&
+                props?.songs[props?.currentSongIndex]?.artist[0]?.attributes
+                  ?.artistName}
             </p>
           </div>
         </div>

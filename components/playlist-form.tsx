@@ -72,6 +72,7 @@ function PlaylistForm() {
   };
   const handleSubmit = async () => {
     try {
+      if (name === "") return;
       const requestBody = {
         data: {
           playlistId: uuidv4(),
@@ -93,6 +94,7 @@ function PlaylistForm() {
         const obj = response.data;
         const id = obj.data.id;
         UserAssignToPlaylist(id);
+        onClose();
       }
     } catch (error) {
       console.log(error);
