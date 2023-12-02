@@ -31,13 +31,10 @@ export default function Banner() {
         </div>
         <div className="flex items-center justify-center h-80 w-80 ">
           <div className="flex items-end justify-start">
-            <img src="/images/banner_music.jpeg" className="relative" />
+          <Image src="/images/banner_music.jpeg" width={660} layout="full" height={840} alt="nice images" className="relative"/>
             <div className="absolute">
               <div className="left-0 bottom-0 w-20 sm:w-30 md:w-60 lg:w-80 bg-opacity-80 rounded-3xl flex items-center justify-evenly p-4">
-                <img
-                  className="w-16 h-16 cursor-pointer"
-                  src="/images/play.png"
-                />
+                <Image src="/images/play.png" width={660} layout="full" height={840} alt="nice images" className="w-16 h-16 cursor-pointer"/>
                 <div className="text-white text-2xl lg:text-4xl font-extrabold font-['Roboto'] flex items-center justify-center">
                   Play Now
                 </div>

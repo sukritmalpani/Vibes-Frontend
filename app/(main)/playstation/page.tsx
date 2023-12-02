@@ -12,7 +12,7 @@ export default function PlayStation() {
   const pathname = usePathname();
   const profile = getUserFromLocalCookie();
   console.log(profile);
-  if (!profile) router.push(`/login?redirect=${pathname}`);
+  // if (!profile) router.push(`/login?redirect=${pathname}`);
   const logout = () => {
     unsetToken(router);
   };
